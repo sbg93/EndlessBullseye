@@ -60,6 +60,6 @@ func _update_hand_position() -> void:
 		return
 	if hand.texture == null:
 		return
-	var local_mouse := ui.to_local(get_viewport().get_mouse_position())
+	var local_mouse := ui.get_local_mouse_position()
 	var clamped_y := clamp(local_mouse.y - (hand.size.y * 0.5), 0.0, ui.size.y - hand.size.y)
 	hand.position = Vector2(ui.size.x - hand.size.x, clamped_y)
