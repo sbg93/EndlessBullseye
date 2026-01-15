@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id=1]
 [ext_resource type="Texture2D" path="res://assets/bulleye.png" id=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PackedFloat32Array(0, 0.55, 1)
+colors = PackedColorArray( Color(0.12, 0.18, 0.35, 1), Color(0.08, 0.12, 0.26, 1), Color(0.04, 0.06, 0.16, 1) )
+
+[sub_resource type="GradientTexture2D" id=2]
+gradient = SubResource("1")
+width = 512
+height = 512
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1")
@@ -11,15 +20,19 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Background" type="ColorRect" parent="UI"]
+[node name="Background" type="TextureRect" parent="UI"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color(0.08, 0.09, 0.15, 1)
+texture = SubResource("2")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="TopBar" type="PanelContainer" parent="UI"]
 anchors_preset = 10
 anchor_right = 1.0
+offset_left = 30.0
+offset_right = -30.0
 offset_bottom = 90.0
 
 [node name="TopBarMargin" type="MarginContainer" parent="UI/TopBar"]
