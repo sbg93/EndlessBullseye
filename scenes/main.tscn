@@ -100,6 +100,15 @@ texture = ExtResource("2")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="Hand" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 2
+z_index = 10
+z_as_relative = false
+texture = ExtResource("3")
+
 [node name="UpgradesMenu" type="PanelContainer" parent="UI"]
 visible = false
 layout_mode = 1
