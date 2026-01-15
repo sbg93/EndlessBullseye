@@ -62,6 +62,13 @@ size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 26
 text = "⚙"
 
+[node name="UpgradesMenuButton" type="Button" parent="UI/TopBar/TopBarMargin/TopBarContent"]
+custom_minimum_size = Vector2(56, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 26
+text = "☰"
+
 [node name="MainContent" type="HBoxContainer" parent="UI"]
 layout_mode = 1
 anchors_preset = 15
@@ -88,150 +95,176 @@ texture = ExtResource("2")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="UpgradesPanel" type="PanelContainer" parent="UI/MainContent"]
-custom_minimum_size = Vector2(380, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="UpgradesMenu" type="PanelContainer" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -320.0
+offset_right = 220.0
+offset_bottom = 320.0
 
-[node name="UpgradesVBox" type="VBoxContainer" parent="UI/MainContent/UpgradesPanel"]
+[node name="UpgradesMenuMargin" type="MarginContainer" parent="UI/UpgradesMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="UpgradesMenuVBox" type="VBoxContainer" parent="UI/UpgradesMenu/UpgradesMenuMargin"]
 layout_mode = 2
 
-[node name="UpgradesHeader" type="Label" parent="UI/MainContent/UpgradesPanel/UpgradesVBox"]
-custom_minimum_size = Vector2(0, 48)
+[node name="UpgradesMenuHeader" type="HBoxContainer" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox"]
+layout_mode = 2
+
+[node name="UpgradesHeader" type="Label" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesMenuHeader"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.95, 0.6, 0.2, 1)
 theme_override_font_sizes/font_size = 26
 text = "UPGRADES"
-horizontal_alignment = 1
 
-[node name="UpgradesScroll" type="ScrollContainer" parent="UI/MainContent/UpgradesPanel/UpgradesVBox"]
+[node name="UpgradesHeaderSpacer" type="Control" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesMenuHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UpgradesCloseButton" type="Button" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesMenuHeader"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 22
+text = "✖"
+
+[node name="UpgradesScroll" type="ScrollContainer" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox"]
 custom_minimum_size = Vector2(0, 520)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="UpgradesList" type="VBoxContainer" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll"]
+[node name="UpgradesList" type="VBoxContainer" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="UpgradeCard1" type="PanelContainer" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList"]
+[node name="UpgradeCard1" type="PanelContainer" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList"]
 custom_minimum_size = Vector2(0, 96)
 layout_mode = 2
 
-[node name="UpgradeCard1Content" type="HBoxContainer" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList/UpgradeCard1"]
+[node name="UpgradeCard1Content" type="HBoxContainer" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList/UpgradeCard1"]
 layout_mode = 2
 
-[node name="Upgrade1Label" type="Label" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList/UpgradeCard1/UpgradeCard1Content"]
+[node name="Upgrade1Label" type="Label" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList/UpgradeCard1/UpgradeCard1Content"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Auto Dardos"
 
-[node name="Upgrade1Cost" type="Label" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList/UpgradeCard1/UpgradeCard1Content"]
+[node name="Upgrade1Cost" type="Label" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList/UpgradeCard1/UpgradeCard1Content"]
 layout_mode = 2
 text = "🪙 150"
 
-[node name="Upgrade1Buy" type="Button" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList/UpgradeCard1/UpgradeCard1Content"]
+[node name="Upgrade1Buy" type="Button" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList/UpgradeCard1/UpgradeCard1Content"]
 layout_mode = 2
 text = "Comprar"
 
-[node name="UpgradeCard2" type="PanelContainer" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList"]
+[node name="UpgradeCard2" type="PanelContainer" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList"]
 custom_minimum_size = Vector2(0, 96)
 layout_mode = 2
 
-[node name="UpgradeCard2Content" type="HBoxContainer" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList/UpgradeCard2"]
+[node name="UpgradeCard2Content" type="HBoxContainer" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList/UpgradeCard2"]
 layout_mode = 2
 
-[node name="Upgrade2Label" type="Label" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList/UpgradeCard2/UpgradeCard2Content"]
+[node name="Upgrade2Label" type="Label" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList/UpgradeCard2/UpgradeCard2Content"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Dardos Dorados"
 
-[node name="Upgrade2Cost" type="Label" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList/UpgradeCard2/UpgradeCard2Content"]
+[node name="Upgrade2Cost" type="Label" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList/UpgradeCard2/UpgradeCard2Content"]
 layout_mode = 2
 text = "🪙 450"
 
-[node name="Upgrade2Buy" type="Button" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList/UpgradeCard2/UpgradeCard2Content"]
+[node name="Upgrade2Buy" type="Button" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList/UpgradeCard2/UpgradeCard2Content"]
 layout_mode = 2
 text = "Comprar"
 
-[node name="UpgradeCard3" type="PanelContainer" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList"]
+[node name="UpgradeCard3" type="PanelContainer" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList"]
 custom_minimum_size = Vector2(0, 96)
 layout_mode = 2
 
-[node name="UpgradeCard3Content" type="HBoxContainer" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList/UpgradeCard3"]
+[node name="UpgradeCard3Content" type="HBoxContainer" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList/UpgradeCard3"]
 layout_mode = 2
 
-[node name="Upgrade3Label" type="Label" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList/UpgradeCard3/UpgradeCard3Content"]
+[node name="Upgrade3Label" type="Label" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList/UpgradeCard3/UpgradeCard3Content"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Dardos Críticos"
 
-[node name="Upgrade3Cost" type="Label" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList/UpgradeCard3/UpgradeCard3Content"]
+[node name="Upgrade3Cost" type="Label" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList/UpgradeCard3/UpgradeCard3Content"]
 layout_mode = 2
 text = "🪙 900"
 
-[node name="Upgrade3Buy" type="Button" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList/UpgradeCard3/UpgradeCard3Content"]
+[node name="Upgrade3Buy" type="Button" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList/UpgradeCard3/UpgradeCard3Content"]
 layout_mode = 2
 text = "Comprar"
 
-[node name="UpgradeCard4" type="PanelContainer" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList"]
+[node name="UpgradeCard4" type="PanelContainer" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList"]
 custom_minimum_size = Vector2(0, 96)
 layout_mode = 2
 
-[node name="UpgradeCard4Content" type="HBoxContainer" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList/UpgradeCard4"]
+[node name="UpgradeCard4Content" type="HBoxContainer" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList/UpgradeCard4"]
 layout_mode = 2
 
-[node name="Upgrade4Label" type="Label" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList/UpgradeCard4/UpgradeCard4Content"]
+[node name="Upgrade4Label" type="Label" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList/UpgradeCard4/UpgradeCard4Content"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Ráfaga Triple"
 
-[node name="Upgrade4Cost" type="Label" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList/UpgradeCard4/UpgradeCard4Content"]
+[node name="Upgrade4Cost" type="Label" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList/UpgradeCard4/UpgradeCard4Content"]
 layout_mode = 2
 text = "🪙 1,500"
 
-[node name="Upgrade4Buy" type="Button" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList/UpgradeCard4/UpgradeCard4Content"]
+[node name="Upgrade4Buy" type="Button" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList/UpgradeCard4/UpgradeCard4Content"]
 layout_mode = 2
 text = "Comprar"
 
-[node name="UpgradeCard5" type="PanelContainer" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList"]
+[node name="UpgradeCard5" type="PanelContainer" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList"]
 custom_minimum_size = Vector2(0, 96)
 layout_mode = 2
 
-[node name="UpgradeCard5Content" type="HBoxContainer" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList/UpgradeCard5"]
+[node name="UpgradeCard5Content" type="HBoxContainer" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList/UpgradeCard5"]
 layout_mode = 2
 
-[node name="Upgrade5Label" type="Label" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList/UpgradeCard5/UpgradeCard5Content"]
+[node name="Upgrade5Label" type="Label" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList/UpgradeCard5/UpgradeCard5Content"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Imán de Centro"
 
-[node name="Upgrade5Cost" type="Label" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList/UpgradeCard5/UpgradeCard5Content"]
+[node name="Upgrade5Cost" type="Label" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList/UpgradeCard5/UpgradeCard5Content"]
 layout_mode = 2
 text = "🪙 2,750"
 
-[node name="Upgrade5Buy" type="Button" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList/UpgradeCard5/UpgradeCard5Content"]
+[node name="Upgrade5Buy" type="Button" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList/UpgradeCard5/UpgradeCard5Content"]
 layout_mode = 2
 text = "Comprar"
 
-[node name="UpgradeCard6" type="PanelContainer" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList"]
+[node name="UpgradeCard6" type="PanelContainer" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList"]
 custom_minimum_size = Vector2(0, 96)
 layout_mode = 2
 
-[node name="UpgradeCard6Content" type="HBoxContainer" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList/UpgradeCard6"]
+[node name="UpgradeCard6Content" type="HBoxContainer" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList/UpgradeCard6"]
 layout_mode = 2
 
-[node name="Upgrade6Label" type="Label" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList/UpgradeCard6/UpgradeCard6Content"]
+[node name="Upgrade6Label" type="Label" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList/UpgradeCard6/UpgradeCard6Content"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Interés Pasivo"
 
-[node name="Upgrade6Cost" type="Label" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList/UpgradeCard6/UpgradeCard6Content"]
+[node name="Upgrade6Cost" type="Label" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList/UpgradeCard6/UpgradeCard6Content"]
 layout_mode = 2
 text = "🪙 4,200"
 
-[node name="Upgrade6Buy" type="Button" parent="UI/MainContent/UpgradesPanel/UpgradesVBox/UpgradesScroll/UpgradesList/UpgradeCard6/UpgradeCard6Content"]
+[node name="Upgrade6Buy" type="Button" parent="UI/UpgradesMenu/UpgradesMenuMargin/UpgradesMenuVBox/UpgradesScroll/UpgradesList/UpgradeCard6/UpgradeCard6Content"]
 layout_mode = 2
 text = "Comprar"
