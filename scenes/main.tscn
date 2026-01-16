@@ -120,6 +120,13 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_sugp2")
 
+[node name="Dart" type="TextureRect" parent="UI"]
+mouse_filter = 2
+anchors_preset = 0
+texture = ExtResource("3")
+expand_mode = 0
+stretch_mode = 0
+
 [node name="UpgradesMenuMargin" type="MarginContainer" parent="UI/UpgradesMenu"]
 layout_mode = 2
 theme_override_constants/margin_left = 16
