@@ -79,10 +79,9 @@ func _update_dart_position() -> void:
 		return
 	if dart.texture == null:
 		return
-	var viewport_mouse := get_viewport().get_mouse_position()
-	var ui_rect := ui.get_global_rect()
+	var local_mouse := ui.get_local_mouse_position()
 	var dart_offset := Vector2(dart.size.x * 0.85, dart.size.y * 0.5)
-	var desired_position := viewport_mouse - dart_offset
-	desired_position.x = clamp(desired_position.x, ui_rect.position.x, ui_rect.position.x + ui_rect.size.x - dart.size.x)
-	desired_position.y = clamp(desired_position.y, ui_rect.position.y, ui_rect.position.y + ui_rect.size.y - dart.size.y)
-	dart.global_position = desired_position
+	var desired_position := local_mouse - dart_offset
+	desired_position.x = clamp(desired_position.x, 0.0, ui.size.x - dart.size.x)
+	desired_position.y = clamp(desired_position.y, 0.0, ui.size.y - dart.size.y)
+	dart.position = desired_position
