@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bds4v3pkmdqr6"]
+[gd_scene load_steps=8 format=3 uid="uid://bds4v3pkmdqr6"]
 
 [ext_resource type="Script" uid="uid://gvy705j37w6e" path="res://scripts/main.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://cavcqur17wmnj" path="res://assets/bullseye.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://yv7v55fic21x" path="res://assets/background.png" id="2_sugp2"]
+[ext_resource type="Texture2D" uid="uid://d2a45ywr1jqtd" path="res://assets/hand.png" id="3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jyhfs"]
 texture = ExtResource("2_sugp2")
@@ -75,7 +76,6 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.99892604, 0.99853575)
 
 [node name="PlayArea" type="PanelContainer" parent="UI/MainContent"]
 custom_minimum_size = Vector2(520, 0)
@@ -86,16 +86,28 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_tbgi4")
 
 [node name="PlayAreaMargin" type="MarginContainer" parent="UI/MainContent/PlayArea"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="Bullseye" type="TextureRect" parent="UI/MainContent/PlayArea/PlayAreaMargin"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 texture = ExtResource("2")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Hand" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 2
+texture = ExtResource("3")
+
+[node name="Hand2" type="TextureRect" parent="UI"]
+z_index = 10
+z_as_relative = false
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 2
+texture = ExtResource("3")
 
 [node name="UpgradesMenu" type="PanelContainer" parent="UI"]
 visible = false
