@@ -25,6 +25,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Dart" type="TextureRect" parent="UI"]
+mouse_filter = 2
+texture = ExtResource("3")
+expand_mode = 0
+stretch_mode = 0
+
 [node name="TopBar" type="PanelContainer" parent="UI"]
 layout_mode = 1
 anchors_preset = 10
