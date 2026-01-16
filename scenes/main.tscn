@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bds4v3pkmdqr6"]
+[gd_scene load_steps=8 format=3 uid="uid://bds4v3pkmdqr6"]
 
 [ext_resource type="Script" uid="uid://gvy705j37w6e" path="res://scripts/main.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://cavcqur17wmnj" path="res://assets/bullseye.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://yv7v55fic21x" path="res://assets/background.png" id="2_sugp2"]
+[ext_resource type="Texture2D" uid="uid://d1fh0u7i5s0lu" path="res://assets/dart.svg" id="3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jyhfs"]
 texture = ExtResource("2_sugp2")
@@ -112,6 +113,13 @@ offset_bottom = 672.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_sugp2")
+
+[node name="Dart" type="TextureRect" parent="UI"]
+mouse_filter = 2
+anchors_preset = 0
+texture = ExtResource("3")
+expand_mode = 0
+stretch_mode = 0
 
 [node name="UpgradesMenuMargin" type="MarginContainer" parent="UI/UpgradesMenu"]
 layout_mode = 2
