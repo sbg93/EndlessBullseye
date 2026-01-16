@@ -6,15 +6,18 @@ var current_score := 0
 
 @onready var ui: Control = $UI
 @onready var hand: TextureRect = $UI/Hand
+@onready var dart: TextureRect = $UI/Dart
 
 func _ready() -> void:
 	print("Endless Bullseye ready. Target score: %d" % TARGET_SCORE)
 	_connect_ui()
 	_update_title()
 	_setup_hand()
+	_setup_dart()
 
 func _process(_delta: float) -> void:
 	_update_hand_position()
+	_update_dart_position()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
@@ -55,6 +58,13 @@ func _setup_hand() -> void:
 		hand.size = hand.texture.get_size()
 	_update_hand_position()
 
+func _setup_dart() -> void:
+	if dart == null:
+		return
+	if dart.texture != null:
+		dart.size = dart.texture.get_size()
+	_update_dart_position()
+
 func _update_hand_position() -> void:
 	if hand == null or ui == null:
 		return
@@ -63,3 +73,15 @@ func _update_hand_position() -> void:
 	var local_mouse := ui.get_local_mouse_position()
 	var clamped_y : Variant = clamp(local_mouse.y - (hand.size.y * 0.5), 0.0, ui.size.y - hand.size.y)
 	hand.position = Vector2(ui.size.x - hand.size.x, clamped_y)
+
+func _update_dart_position() -> void:
+	if dart == null or ui == null:
+		return
+	if dart.texture == null:
+		return
+	var local_mouse := ui.get_local_mouse_position()
+	var dart_offset := Vector2(dart.size.x * 0.85, dart.size.y * 0.5)
+	var desired_position := local_mouse - dart_offset
+	desired_position.x = clamp(desired_position.x, 0.0, ui.size.x - dart.size.x)
+	desired_position.y = clamp(desired_position.y, 0.0, ui.size.y - dart.size.y)
+	dart.position = desired_position
